@@ -22,7 +22,8 @@ if ActiveRecord::VERSION::MAJOR == 4 and ActiveRecord::VERSION::MINOR == 2
         module OID # :nodoc:
           class Uuid < Type::Value # :nodoc:
             def type_cast_from_user(value)
-              UUIDTools::UUID.serialize(value) if value
+              # UUIDTools::UUID.serialize(value) if value
+              value
             end
             alias_method :type_cast_from_database, :type_cast_from_user
           end
